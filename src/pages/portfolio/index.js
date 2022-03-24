@@ -2,7 +2,12 @@ import React from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
-import { dataportfolio, meta } from "../../content_option";
+import {
+  portfoliogenre,
+  meta,
+  dataportfolioweb,
+  dataportfoliodes,
+} from "../../content_option";
 
 export const Portfolio = () => {
   return (
@@ -19,14 +24,41 @@ export const Portfolio = () => {
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
+        <Row className=".sec_sp_port">
+          <Col lg="5">
+            <h3 className="color_sec py-4">{portfoliogenre.title.first}</h3>
+          </Col>
+        </Row>
         <div className="mb-5 po_items_ho">
-          {dataportfolio.map((data, i) => {
+          {dataportfolioweb.map((data, i) => {
             return (
               <div key={i} className="po_item">
                 <img src={data.img} alt="" />
                 <div className="content">
                   <p>{data.desctiption}</p>
-                  <a href={data.link}>view project</a>
+                  <a href={data.link} target="_blank" rel="noreferrer noopener">
+                    voir le projet
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <Row className=".sec_sp_port">
+          <Col lg="5">
+            <h3 className="color_sec py-4">{portfoliogenre.title.second}</h3>
+          </Col>
+        </Row>
+        <div className="mb-5 po_items_ho">
+          {dataportfoliodes.map((data, i) => {
+            return (
+              <div key={i} className="po_item">
+                <img src={data.img} alt="" />
+                <div className="content">
+                  <p>{data.desctiption}</p>
+                  <a href={data.link} target="_blank" rel="noreferrer noopener">
+                    voir le projet
+                  </a>
                 </div>
               </div>
             );
